@@ -130,11 +130,10 @@ export const RegisterForm = () => {
                     type="submit"
                     className="w-full"
                 >
-                    Login
+                    Register
                 </Button>
                 </form>
             </Form>
-            Login Form!
         </CardWrapper>
     )
 }
