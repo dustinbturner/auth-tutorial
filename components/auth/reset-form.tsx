@@ -26,7 +26,7 @@ import { FormSuccess } from "../form-success";
 import { login } from "@/actions/login";
 import Link from "next/link";
 
-export const LoginForm = () => {
+export const ResetForm = () => {
         const searchParams = useSearchParams();
         const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
             ? "Email already in use with different provider!"
@@ -62,9 +62,9 @@ export const LoginForm = () => {
 
     return (
         <CardWrapper
-            headerLabel="Welcome Back"
-            backButtonLabel="Don't have an account?"
-            backButtonHref="/auth/register"
+            headerLabel="Forgot your password?"
+            backButtonLabel="Back to login"
+            backButtonHref="/auth/login"
             showSocial
         >
             <Form {...form}>
