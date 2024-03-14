@@ -5,7 +5,6 @@ import * as z from "zod";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { ResetSchema } from "@/schema"
 import { Input } from "@/components/ui/input"
 
@@ -23,15 +22,11 @@ import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 
-
-
 export const ResetForm = () => {
-
 
         const [error, setError] = useState<string | undefined>("");
         const [success, setSuccess] = useState<string | undefined>("");
-        const [isPending, startTransition] = useTransition();
-
+        const [isPending] = useTransition();
 
         const form = useForm<z.infer<typeof ResetSchema>>({
             resolver: zodResolver(ResetSchema),
@@ -87,7 +82,6 @@ export const ResetForm = () => {
                             </FormItem>
                         )}
                     />
-                    
                 </div>
                 <FormError message={error} />
                 <FormSuccess message={success} />
