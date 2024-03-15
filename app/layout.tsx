@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Next14 Authentication Project",
   description:
-    "This is a Next14 Authentication Project using Next Auth v5, NextJS 14, Tailwind, TypeScript, and deployed to Vercel.",
+    "This is a Next14 Authentication Project using Next Auth v5, NextJS 14, Tailwind, TypeScript, Resend and deployed to Vercel.",
 };
 
 export default async function RootLayout({
