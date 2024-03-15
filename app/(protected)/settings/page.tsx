@@ -1,21 +1,36 @@
 "use client";
 
-import { useCurrentUser } from "@/hooks/use-current-user";
-import { signOut } from "next-auth/react";
+import { useTransition } from "react";
+
+import { settings } from "@/actions/settings";
+import { Button } from "@/components/ui/button";
+import {
+    Card,
+    CardHeader,
+    CardContent,
+}   from "@/components/ui/card"
 
 const SettingsPage = () => {
-    const user = useCurrentUser();
-
     const onClick = () => {
-        signOut();
-    };
+
+        settings({
+            name: "New Name!"
+        });
+    }
 
     return ( 
-        <div className="bg-white p-10 rounded-xl">
-            <button onClick={onClick} type="submit">
-                Sign Out
-            </button>
-        </div>
+        <Card className="w-[600px]">
+            <CardHeader>
+                <p className="text-2xl font-semibold text-center">
+                    Settings
+                </p>
+            </CardHeader>
+            <CardContent>
+                <Button onClick={onClick}>
+                    Update Name
+                </Button>
+            </CardContent>
+        </Card>
     );
 }
 
