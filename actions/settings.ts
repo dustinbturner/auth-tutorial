@@ -3,7 +3,6 @@
 import * as z from "zod";
 import bcrypt from "bcrypt";
 
-// import { update } from "@/auth";
 import { db } from "@/lib/db";
 import { SettingsSchema } from "@/schema";
 import { getUserByEmail, getUserById } from "@/data/user";
