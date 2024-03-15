@@ -1,5 +1,6 @@
-import authConfig from "./auth.config";
 import NextAuth from "next-auth";
+
+import authConfig from "@/auth.config";
 import {
   DEFAULT_LOGIN_REDIRECT,
   apiAuthPrefix,
@@ -9,6 +10,7 @@ import {
 
 const { auth } = NextAuth(authConfig);
 
+// @ts-ignore
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
@@ -45,7 +47,6 @@ export default auth((req) => {
 });
 
 // Optionally, don't invoke Middleware on some paths
-// Read more: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
