@@ -58,14 +58,21 @@ export const {
           session.user.role = token.role as "ADMIN" | "USER";
         }
 
+        if (session.user) {
+          session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
+        }
+
         return session;
       },
       async jwt ({ token }) {
         if (!token.sub) return token;
 
         const existingUser = await getUserById(token.sub);
+
         if (!existingUser) return token;
         token.role = existingUser.role;
+        token.isTwoFactorEnabled= existingUser.isTwoFactorEnabled;
+
         return token;
       }
     },
