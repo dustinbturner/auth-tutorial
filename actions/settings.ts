@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import bcrypt from "bcrypt";
-
+// @ts-ignore
 import { update } from "@/auth";
 import { db } from "@/lib/db";
 import { SettingsSchema } from "@/schema";
